@@ -43,3 +43,4 @@ Route::any('/end', function () {
 
 Route::any('/add', [QuestionController::class, 'add']);
 Route::any('/questions', [QuestionController::class, 'show']);
+Route::any('update','QuestionController@update');

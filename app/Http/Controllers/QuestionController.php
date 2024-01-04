@@ -49,4 +49,37 @@ class QuestionController extends Controller
 
         return view('questions')->with(['questions'=>$qs]);
     }
+
+    public function update(Request $request ){
+        $request->validate([
+            'question'=>'required',
+            'opta' => 'required',
+            'optb' => 'required',
+            'optc' => 'required',
+            'optd' => 'required',
+            'answer' => 'required',
+            'id' => "required",
+        ]);
+
+        $qu=question::find($request->id);
+
+        $qu->question=$request->question;
+        $qu->a=$request->opta;
+        $qu->b=$request->optb;
+        $qu->c=$request->optc;
+        $qu->d=$request->optd;
+        $qu->answer=$request->answer;
+
+        // $qu = question::create([
+        //     'question' => $request->question,
+        //     'a' => $request->opta,
+        //     'b' => $request->optb,
+        //     'c' => $request->optc,
+        //     'd' => $request->optd,
+        //     'answer' => $request->answer,
+        // ]);
+        $qu->save();
+        Session::put("SuccessMessage", "Question successfully Update");
+        return redirect('questions');
+    }
 }
