@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::any('/answerDesk', function () {
+    return view('answerDesk');
+});
 
 Route::any('/questions', function () {
     return view('questions');
 });
 
-Route::any('/add', function () {
-    return view('add');
-});
+
 
 Route::any('/start', function () {
     return view('start');
@@ -32,3 +34,10 @@ Route::any('/start', function () {
 Route::any('/end', function () {
     return view('end');
 });
+
+
+
+
+// Route::any('/add', 'QuestionController@add');
+
+Route::post('/add', [QuestionController::class, 'QuestionController']);

@@ -20,6 +20,19 @@
 
     <body>
 
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5" style="margin-top: 70vh">
+                    @foreach ($errors->all() as $error)
+                        <h2>{{$error}}</h2>
+                        @endforeach
+                    @endforeach
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
+
         <div class="container-xl">
             <div class="table-responsive">
                 <div class="table-wrapper">
@@ -72,7 +85,38 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        <div class="row"></div>
+                            <div class="row">
+                                <label for="" class="newQuestionlabel" style="margin: 0px">Question: </label>
+                                <input type="text" name="question" style="width: 100%-20%">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">A: </div>
+                                <div class="col-md-6">B: </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6"><input type="text" name="opta"></div>
+                                <div class="col-md-6"><input type="text" name="optb"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">C: </div>
+                                <div class="col-md-6">D: </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-6"><input type="text" name="optc"></div>
+                                <div class="col-md-6"><input type="text" name="optd"></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col md-3"> 
+                                    <label for="">Answer: </label>
+                                    <select name="answer" class="form-control">
+                                        <option value="a">A</option>
+                                        <option value="b">B</option>
+                                        <option value="c">C</option>
+                                        <option value="d">D</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
