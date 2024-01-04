@@ -82,4 +82,15 @@ class QuestionController extends Controller
         Session::put("SuccessMessage", "Question successfully Update");
         return redirect('questions');
     }
+
+
+    public function delete(Request $request ){
+        $validate=$request->validate([
+            'id' => 'required'
+        ]);
+        
+        question::where('id'.$request->id)->delete();
+        Session::put("SuccessMessage", "Question successfully Deleted");
+        return redirect('questions');
+    }
 }
