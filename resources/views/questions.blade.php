@@ -1,3 +1,6 @@
+<h3 style="text-align: center; margin-top: 50px">ფინალურის პროექტი გიორგი პაქსაშვილი</h3>
+
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -22,14 +25,28 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-5" style="margin-top: 70vh">
+                <div class="col-md-4"></div>
+                <div class="col-md-4" style="margin-top: 20vh">
                     @foreach ($errors->all() as $error)
-                        <h2>{{$error}}</h2>
-                        @endforeach
+                        <div class="alert alert-danger  alert-dismissible fade show" role="alert">
+                            <strong>Error!</strong> {{$error}}
+                            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
                     @endforeach
+
+                    @if (Session::get('successMessage'))
+                    <div class="alert alert-success  alert-dismissible fade show" role="alert">
+                        <strong>Success !</strong> {{Session::get('successMessage')}}
+                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                        <?php Session::forget('successMessage'); ?>
+                    @endif
                 </div>
-                <div class="col-md-6"></div>
+                <div class="col-md-4"></div>
             </div>
         </div>
 
@@ -57,14 +74,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>ვინ დაარსა თბილისი ?</td>
-                                <td>
-                                    <a href="#" class="text-warning"  data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update">Update</a>
-                                    <a href="#" class="text-danger"  data-toggle="tooltip" >Delete</a>
-                                </td>
-                            </tr>
+                            @foreach($questions as $qu)
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{$qu->question}} ?</td>
+                                    <td>
+                                        <a href="#" class="text-warning"  data-toggle="tooltip" data-toggle="modal" data-target="#Modal_update">Update</a>
+                                        <a href="#" class="text-danger"  data-toggle="tooltip" >Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                           
                         </tbody>
                     </table>
         

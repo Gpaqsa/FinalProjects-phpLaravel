@@ -1,9 +1,12 @@
 <?php
 
+namespace App\Http\Models;
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Session;
+
+// use App\question;
+use App\Models\question;
 use Illuminate\Http\Request;
-use App\question;
+use Illuminate\Support\Facades\Session;
 
 class QuestionController extends Controller
 {
@@ -19,6 +22,7 @@ class QuestionController extends Controller
         ]);
 
         $qu=new question();
+
         $qu->question=$request->question;
         $qu->a=$request->opta;
         $qu->b=$request->optb;
@@ -26,10 +30,23 @@ class QuestionController extends Controller
         $qu->d=$request->optd;
         $qu->answer=$request->answer;
 
+        // $qu = question::create([
+        //     'question' => $request->question,
+        //     'a' => $request->opta,
+        //     'b' => $request->optb,
+        //     'c' => $request->optc,
+        //     'd' => $request->optd,
+        //     'answer' => $request->answer,
+        // ]);
         $qu->save();
         Session::put("SuccessMessage", "Question successfully Added");
-        return redirect('question');
+        return redirect('questions');
+    }
 
+    public function show()
+    {
+        $qs=question::all();
 
+        return view('questions')->with(['questions'=>$qs]);
     }
 }

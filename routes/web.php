@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
+use App\question;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,5 @@ Route::any('/end', function () {
 
 // Route::any('/add', 'QuestionController@add');
 
-Route::post('/add', [QuestionController::class, 'QuestionController']);
+Route::any('/add', [QuestionController::class, 'add']);
+Route::any('/questions', [QuestionController::class, 'show']);
