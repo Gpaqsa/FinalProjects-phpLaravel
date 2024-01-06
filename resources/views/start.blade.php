@@ -21,22 +21,22 @@
 
 
 
-
-    <div class="container-fluid" style="margin-top: 50px; margin-left: 20px">
-        <div class="row">
-            <div class="4"></div>
-            <div class="col-md-4 ">
-                <h3 class="cont">როცა მზად იქნები დაიწყე</h3>
-                <a href="startquiz"><button style="padding: 10px; margin:20px" class="btn btn-primary">Start
-                        Quiz</button></a>
-                <div class="text-center"><a href="/">Home ?!</a></div>
+    <div class="startBack" >
+        <div class="container-fluid " style="margin-top: 50px; margin-left: 20px">
+            <div class="row">
+                <div class="4"></div>
+                <div class="col-md-4 ">
+                    <h3 class="cont">როცა მზად იქნები დაიწყე</h3>
+                    <a href="startquiz"><button style="padding: 10px; margin:20px" class="btn btn-primary">Start
+                            Quiz</button></a>
+                    <div class="text-center"><a href="/">Home ?!</a></div>
+                </div>
+                <div class="4"></div>
             </div>
-            <div class="4"></div>
+           
         </div>
-        {{-- <div style="width:100wv; height: 100vh">
-            <img src="../Public/images/QuizTime.png" alt="quizTime" style="width: 100vw; height:auto;"/>
-        </div> --}}
     </div>
+   
 
     <script src="files/jquery.min.js"></script>
     <script src="files/popperjs.min.js"></script>
