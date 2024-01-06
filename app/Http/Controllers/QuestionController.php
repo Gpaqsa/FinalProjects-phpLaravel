@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Contoller;
 
 class QuestionController extends Controller
 {
@@ -30,16 +31,8 @@ class QuestionController extends Controller
         $qu->d=$request->optd;
         $qu->answer=$request->answer;
 
-        // $qu = question::create([
-        //     'question' => $request->question,
-        //     'a' => $request->opta,
-        //     'b' => $request->optb,
-        //     'c' => $request->optc,
-        //     'd' => $request->optd,
-        //     'answer' => $request->answer,
-        // ]);
         $qu->save();
-        Session::put("SuccessMessage", "Question successfully Added");
+        Session::put("successMessage", "Question successfully Added");
         return redirect('questions');
     }
 
@@ -70,16 +63,8 @@ class QuestionController extends Controller
         $qu->d=$request->optd;
         $qu->answer=$request->answer;
 
-        // $qu = question::create([
-        //     'question' => $request->question,
-        //     'a' => $request->opta,
-        //     'b' => $request->optb,
-        //     'c' => $request->optc,
-        //     'd' => $request->optd,
-        //     'answer' => $request->answer,
-        // ]);
         $qu->save();
-        Session::put("SuccessMessage", "Question successfully Update");
+        Session::put("successMessage", "Question successfully Update");
         return redirect('questions');
     }
 
@@ -90,7 +75,9 @@ class QuestionController extends Controller
         ]);
         
         question::where('id'.$request->id)->delete();
-        Session::put("SuccessMessage", "Question successfully Deleted");
+        Session::put("successMessage", "Question successfully Deleted");
         return redirect('questions');
     }
+    
+    
 }
