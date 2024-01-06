@@ -23,29 +23,38 @@
     <div class="background-container12">
 
         <div class="container-fluid" style="padding-top: 30px; color: black; d-flex flex-column">
-            <div class="col-md-3"></div>
-            <div class="col-md-4" style="margin:20px; d-flex flex-column">
-                <h3>#1 ვინ დაარსა თბილისი ?</h3> <br />
-                <input checked="true" name="answer" type="radio" style="margin:5px"> (A) <small></small>ვახტანგ
-                გორგასალი</small> ; <br />
-                <input name="answer" type="radio" style="margin:5px"> (B) <small></small>ივანე ჯავახიშვილი</small> ;
-                <br />
-                <input name="answer" type="radio" style="margin:5px"> (C) <small></small>გალაკტიონ ტაბიძე</small> ;
-                <br />
-                <input name="answer" type="radio" style="margin:5px"> (D) <small></small>ნოე ჟორდანია</small> ;
-                <br />
-                <input value="" style="visibility: hidden"; name="dbanswer" />
-            </div>
-            <div class="col-md-5"></div>
+            <form method="post" action="/submitAnswer">
+                @csrf
+                <div class="col-md-3"></div>
+                <div class="col-md-4" style="margin:20px; d-flex flex-column">
+                    <h3>#{{ Session::get('nextQuestion') }} {{ $question->question }} ?</h3> <br />
+                    <input value="a" checked="true" name="answer" type="radio" style="margin:5px"> (A)
+                    <small></small>{{ $question->a }}</small> ; <br />
+                    <input value="b" name="answer" type="radio" style="margin:5px"> (B)
+                    <small></small>{{ $question->b }}</small> ;
+                    <br />
+                    <input value="c" name="answer" type="radio" style="margin:5px"> (C)
+                    <small></small>{{ $question->c }}</small> ;
+                    <br />
+                    <input value="d" name="answer" type="radio" style="margin:5px"> (D)
+                    <small></small>{{ $question->d }}</small> ;
+                    <br />
+                    <input value="{{ $question->answer }}" style="visibility: hidden"; name="dbanswer" />
+                </div>
+                <div class="col-md-5"></div>
+
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">Next</button>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </form>
         </div>
 
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-4">
-                <a href="#"><button class="btn btn-primary">Next</button></a>
-            </div>
-            <div class="col-md-5"></div>
-        </div>
+
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

@@ -39,13 +39,9 @@ Route::any('/end', function () {
 
 
 
-// Route::any('/add', 'QuestionController@add');
 
 Route::any('/add', [QuestionController::class, 'add']);
 Route::any('/questions', [QuestionController::class, 'show']);
-// Route::any('update','QuestionController@update');
-// Route::any('delete','QuestionController@delete');
-
 
 Route::any('update', [QuestionController::class, "update"]);
 Route::any('delete', [QuestionController::class, "delete"]);
@@ -53,4 +49,6 @@ Route::any('delete', [QuestionController::class, "delete"]);
 
 
 // For Student
-// Route::any('startquiz', [QuestionController::class, "startquiz"]);
+Route::any('startquiz', [QuestionController::class, "startquiz"]);
+
+Route::any('submitAnswer', [QuestionController::class, "submitAnswer"]);

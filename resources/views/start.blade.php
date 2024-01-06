@@ -27,7 +27,7 @@
             <div class="4"></div>
             <div class="col-md-4 ">
                 <h3 class="cont">როცა მზად იქნები დაიწყე</h3>
-                <a href="#"><button style="padding: 10px; margin:20px" class="btn btn-primary">Start
+                <a href="startquiz"><button style="padding: 10px; margin:20px" class="btn btn-primary">Start
                         Quiz</button></a>
                 <div class="text-center"><a href="/">Home ?!</a></div>
             </div>

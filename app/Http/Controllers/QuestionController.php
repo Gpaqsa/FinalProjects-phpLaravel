@@ -12,7 +12,8 @@ use App\Http\Controllers\Contoller;
 class QuestionController extends Controller
 {
     //
-    public function add(Request $request ){
+    public function add(Request $request )
+    {
         $request->validate([
             'question'=>'required',
             'opta' => 'required',
@@ -43,7 +44,8 @@ class QuestionController extends Controller
         return view('questions')->with(['questions'=>$qs]);
     }
 
-    public function update(Request $request ){
+    public function update(Request $request )
+    {
         $request->validate([
             'question'=>'required',
             'opta' => 'required',
@@ -69,7 +71,8 @@ class QuestionController extends Controller
     }
 
 
-    public function delete(Request $request ){
+    public function delete(Request $request )
+    {
         $validate=$request->validate([
             'id' => 'required'
         ]);
@@ -79,5 +82,61 @@ class QuestionController extends Controller
         return redirect('questions');
     }
     
-    
+    public function startquiz()
+    {
+        Session::put("nextQuestion", '1');
+        Session::put("wrongAnswer", '0');
+        Session::put("correctAnswer", '0');
+        
+        $qu=question::all()->first();
+
+        return view('answerDesk')->with(['question'=>$qu]);
+
+    }
+
+    public function submitAnswer(Request $request)
+    {
+        $nextQuestion=Session::get("nextQuestion", '1');
+        $wrongAnswer = Session::get("wrongAnswer", '0');
+        $correctAnswer=Session::get("correctAnswer", '0');
+        $validate=$request->validate([
+            'answer'=>'required',
+            'dbanswer'=>'required',
+        ]);
+
+        $nextQuestion=Session::get("nextQuestion");
+        $nextQuestion+=1;
+
+        if ($request->dbanswer==$request->answer)
+        {
+            # code...
+            $correctAnswer+=1;
+        }else
+        {
+            $wrongAnswer+=1;
+        }
+        
+        Session::put("nextQuestion", $nextQuestion);
+        Session::put("wrongAnswer", $wrongAnswer);
+        Session::put("correctAnswer", $correctAnswer);
+
+
+        $i=0;
+
+        $questions=question::all();
+
+        foreach($questions as $question)
+        {
+            $i++;
+            if($questions->count()< $nextQuestion)
+            {
+                return view('end');
+            }
+
+            if($i==$nextQuestion)
+            {
+                return view('answerDesk')->with(['question'=>$question]);
+            }
+        }
+    }
 }

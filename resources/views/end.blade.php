@@ -26,12 +26,12 @@
         <div class="row">
             <div class="4"></div>
             <div class="col-md-4">
-                <label>Correct: <small>8</small></label>
-                <label>InCorrect: <small>4</small></label>
-                <label>Result: <small>8/12</small></label>
+                <label>Correct: <small>{{Session::get("correctAnswer");}}</small></label>
+                <label>InCorrect: <small>{{Session::get("wrongAnswer");}}</small></label>
+                <label>Result: <small>{{Session::get("correctAnswer");}}/{{Session::get("correctAnswer");}}-{{Session::get("wrongAnswer");}}</small></label>
 
                 <h3 class="cont">ქვიზის დასრულება</h3>
-                <a href="#"><button style="padding: 10px; margin:20px" class="btn btn-primary">Finish
+                <a href="/"><button style="padding: 10px; margin:20px" class="btn btn-primary">Finish
                         Quiz</button></a>
                 <div class="text-center"><a href="/">Home ?!</a></div>
             </div>
