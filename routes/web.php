@@ -60,11 +60,13 @@ Route::any('startquiz', [QuestionController::class, "startquiz"]);
 Route::any('submitAnswer', [QuestionController::class, "submitAnswer"]);
 
 
-// Register
-
-Route::get('/register', [AuthController::class, "loadRegister"]);
-Route::post('/register', [AuthController::class, "studentRegister"])->name('studentRegister');
-
+// // Register
+// Route::get('/register', function () {
+//     return view('register');
+// });
+// Route::get('/register', [AuthController::class, "loadRegister"]);
+// // Route::post('/register', [AuthController::class, "studentRegister"])->name('studentRegister');
+Route::post('/register', [RegisterUserController::class, 'register']);
 
 // Route::get('/', [AuthController::class, 'loadLogin']);
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
