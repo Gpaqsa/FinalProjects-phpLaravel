@@ -18,9 +18,11 @@
 </head>
 
 <body>
-
+  
     <div class="background-container1">
-
+        <div class="buttons-container">
+            <a href="/dashboard"><button class="btn btn-secondary " style="margin: 10px">DashBoard</button></a>
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1"></div>

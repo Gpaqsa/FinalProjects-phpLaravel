@@ -20,7 +20,6 @@
 <body>
 
 
-
     <div class="startBack" >
         <div class="container-fluid " style="margin-top: 50px; margin-left: 20px">
             <div class="row">
@@ -29,7 +28,7 @@
                     <h3 class="cont">როცა მზად იქნები დაიწყე</h3>
                     <a href="startquiz"><button style="padding: 10px; margin:20px" class="btn btn-primary">Start
                             Quiz</button></a>
-                    <div class="text-center"><a href="/">Home ?!</a></div>
+                    <div class="text-center"><a href="/home">Home ?!</a></div>
                 </div>
                 <div class="4"></div>
             </div>

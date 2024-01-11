@@ -63,7 +63,7 @@
                                 class="btn btn-primary">Add</Button></div>
 
                         <div class="col-sm-4">
-                            <a href="/">Home ?!</a>
+                            <a href="/home">Home ?!</a>
                             <div class="search-box">
                                 <input type="text" class="form-control" placeholder="Search&hellip;">
                             </div>

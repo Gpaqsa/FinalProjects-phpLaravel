@@ -31,9 +31,9 @@
                 <label>Result: <small>{{Session::get("correctAnswer");}}/{{Session::get("correctAnswer")+Session::get("wrongAnswer");}}</small></label>
 
                 <h3 class="cont">ქვიზის დასრულება</h3>
-                <a href="/"><button style="padding: 10px; margin:20px" class="btn btn-primary">Finish
+                <a href="/home"><button style="padding: 10px; margin:20px" class="btn btn-primary">Finish
                         Quiz</button></a>
-                <div class="text-center"><a href="/">Home ?!</a></div>
+                <div class="text-center"><a href="dashboard/home">Home ?!</a></div>
             </div> 
             <div class="4"></div>
         </div>
